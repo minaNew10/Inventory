@@ -48,7 +48,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     private static final String TAG = "EditorActivity";
     private static final int PET_LOADER = 0;
     private boolean productChanged = false;
-
+    // to check if any changes happen to entries
     private View.OnTouchListener mTouchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -429,17 +429,21 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 mOrderQuantity = Integer.parseInt(input.getText().toString());
                 ContentValues value = new ContentValues();
                 if(add) {
-                    value.put(ProductEntry.COLUMN_PRODUCT_QUANTITY, currentQuantity + mOrderQuantity);
-                    getContentResolver().update(uri, value, null, null);
+//                    value.put(ProductEntry.COLUMN_PRODUCT_QUANTITY, currentQuantity + mOrderQuantity);
+//                    getContentResolver().update(uri, value, null, null);
+
+                 currentQuantity = currentQuantity + mOrderQuantity;
                 }else {
-                    value.put(ProductEntry.COLUMN_PRODUCT_QUANTITY,currentQuantity-mOrderQuantity);
+
                     if(currentQuantity - mOrderQuantity > 0)
-                        getContentResolver().update(uri,value,null,null);
+                        currentQuantity = currentQuantity -mOrderQuantity;
                     else
                         Toast.makeText(EditorActivity.this,getResources().getString(R.string.cannot_sell),Toast.LENGTH_LONG).show();
                 }
+                etxtQuantity.setText("" +currentQuantity);
             }
         });
+
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

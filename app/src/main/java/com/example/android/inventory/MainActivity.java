@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             case R.id.action_delete_all_entries:
                 deleteAllProducts();
                 return true;
-
         }
         return super.onOptionsItemSelected(item);
     }

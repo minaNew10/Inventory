@@ -10,15 +10,12 @@ import com.example.android.inventory.data.ProductContract.ProductEntry;
 public class ProductDbHelper extends SQLiteOpenHelper {
 
     public static final String LOG_TAG = ProductDbHelper.class.getSimpleName();
-
     /** Name of the database file */
     private static final String DATABASE_NAME = "inventory.db";
-
     /**
      * Database version. If you change the database schema, you must increment the database version.
      */
     private static final int DATABASE_VERSION = 1;
-
     /**
      * Constructs a new instance of {@link ProductDbHelper}.
      *
@@ -39,9 +36,7 @@ public class ProductDbHelper extends SQLiteOpenHelper {
                 ProductEntry.COLUMN_PRODUCT_SUPPLIER + " TEXT );";
 
         db.execSQL(SQL_CREATE_PRODUCTS_TABLES);
-
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

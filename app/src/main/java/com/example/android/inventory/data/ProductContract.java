@@ -7,7 +7,7 @@ import android.provider.BaseColumns;
 
 import com.example.android.inventory.Product;
 
-public class ProductContract {
+public final class ProductContract {
     // give it an empty constructor.
     // To prevent someone from accidentally instantiating the contract class,
     private ProductContract(){}
