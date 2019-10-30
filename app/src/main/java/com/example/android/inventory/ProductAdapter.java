@@ -41,7 +41,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     @Override
     public void onViewRecycled(@NonNull ProductViewHolder holder) {
         super.onViewRecycled(holder);
-        cursor.close();
     }
 
     @Override
@@ -105,11 +104,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     @Override
     public int getItemCount() {
+        if(cursor == null)
+            return 0;
         return cursor.getCount();
     }
 
     public void swapCursor(Cursor cursor){
         this.cursor = cursor;
+        notifyDataSetChanged();
     }
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {

@@ -56,6 +56,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             return false;
         }
     };
+
     Uri uri;
     int currentQuantity,mOrderQuantity;
     @Override
@@ -129,11 +130,13 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         etxtPrice.setOnTouchListener(mTouchListener);
         etxtSupplier.setOnTouchListener(mTouchListener);
         spinnerCategory.setOnTouchListener(mTouchListener);
+        imgProduct.setOnTouchListener(mTouchListener);
 
         //uri is null in case of adding new product
 
 
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

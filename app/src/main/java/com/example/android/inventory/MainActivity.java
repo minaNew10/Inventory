@@ -1,11 +1,15 @@
 package com.example.android.inventory;
 
 import android.app.LoaderManager;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.database.CharArrayBuffer;
+import android.database.ContentObserver;
 import android.database.Cursor;
+import android.database.DataSetObserver;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
@@ -32,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     RecyclerView recyclerView;
     FloatingActionButton floatingActionButton;
     ProductAdapter productAdapter;
-    Cursor cursor = null;
+    Cursor cursor ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +111,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-            productAdapter.swapCursor(null);
+
     }
 }
